@@ -1,0 +1,9 @@
+node_modules
+**/node_modules
+.git
+.tanstack-start-tmp
+apps/web/.output
+apps/web/dist
+apps/mobile/.expo
+coverage
+*.log
