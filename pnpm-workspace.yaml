@@ -1,10 +1,23 @@
 packages:
-  - 'packages/*'
+  - 'apps/*'
+  - 'packages/api'
+  - 'packages/axios'
+  - 'packages/color'
+  - 'packages/domain'
+  - 'packages/theme'
+  - 'packages/utils'
+  - 'packages/visualization'
+
+overrides:
+  react-remove-scroll: 2.7.2
+  use-sync-external-store: 1.6.0
+
 allowBuilds:
-  '@parcel/watcher': false
   esbuild: false
+  msgpackr-extract: false
   simple-git-hooks: false
-  vue-demi: false
+  unrs-resolver: false
+
 shamefullyHoist: true
 ignoreWorkspaceRootCheck: true
 linkWorkspacePackages: true

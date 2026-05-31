@@ -11,7 +11,12 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+.output
+.tanstack-start-tmp
+.expo
 coverage
+playwright-report
+test-results
 *.local
 
 /cypress/videos/

@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --radius-md: var(--radius);
+}
+
+:root {
+  --background: #f7f9fc;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+  --input: #d1d5db;
+  --ring: rgba(100, 108, 255, 0.34);
+  --primary: #646cff;
+  --primary-foreground: #ffffff;
+  --primary-soft: #eef0ff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --destructive: #ef4444;
+  --radius: 6px;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --background: #0f172a;
+  --foreground: #e5e7eb;
+  --card: #111827;
+  --card-foreground: #e5e7eb;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --border: #253044;
+  --input: #374151;
+  --secondary: #1f2937;
+  --secondary-foreground: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 30;
+  display: flex;
+  width: 228px;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--card);
+  transition: width 180ms ease;
+}
+
+.app-sidebar.is-collapsed {
+  width: 64px;
+}
+
+.app-main {
+  min-height: 100vh;
+  padding-left: 228px;
+  transition: padding-left 180ms ease;
+}
+
+.app-main.is-collapsed {
+  padding-left: 64px;
+}
+
+.menu-item {
+  display: flex;
+  min-height: 40px;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  padding: 0 12px;
+  color: var(--muted-foreground);
+  text-align: left;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.menu-item:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.menu-item.is-active {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.app-tab {
+  display: inline-flex;
+  height: 34px;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid transparent;
+  padding: 0 14px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.app-tab.is-active {
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.theme-drawer {
+  position: fixed;
+  inset: 118px 0 0 auto;
+  z-index: 25;
+  display: flex;
+  width: 320px;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+  background: var(--card);
+  padding: 22px;
+  box-shadow: -12px 0 28px rgba(15, 23, 42, 0.06);
+}
+
+.route-loading {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 14px;
+}
+
+@media (max-width: 960px) {
+  .app-sidebar {
+    width: 64px;
+  }
+
+  .app-main {
+    padding-left: 64px;
+  }
+
+  .theme-drawer {
+    display: none;
+  }
+}
